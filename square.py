@@ -69,11 +69,19 @@ class Square:
         self.last_bounce_time = get_current_time()
         return True
 
-    def compute_glowy_surface(self, rect, val):
-        glowy_borders = make_glowy2((rect.size[0] + 40, rect.size[1] + 40), Color(Config.glow_color), val)
-        surface = pygame.Surface(rect.inflate(100, 100).size, pygame.SRCALPHA)
-        surface.blit(glowy_borders, (20, 20), special_flags=pygame.BLEND_RGBA_ADD)
-        return surface
+   def compute_glowy_surface(self, rect, val):
+    # Set the glow color to yellow
+    glow_color = (255, 255, 0)  # RGB value for yellow
+    # Create the glowing borders with the yellow color
+    glowy_borders = make_glowy2((rect.size[0] + 40, rect.size[1] + 40),  color(pygame.color(255.255.0) 
+                                
+    # Create a transparent surface with enough space for the glow effect
+    surface = pygame.Surface(rect.inflate(100, 100).size, pygame.SRCALPHA)
+    
+    # Blit the glowing borders onto the surface with an add blend mode
+    surface.blit(glowy_borders, (20, 20), special_flags=pygame.BLEND_RGBA_ADD)
+    
+    return surface
 
     def draw_glowing3(self, win, rect):
         if self.died:
